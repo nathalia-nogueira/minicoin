@@ -1,11 +1,38 @@
 import socket
 import sys
+import os
+import json
+import datetime
+
+def get_valid_menu_option():
+    option = -1
+
+    while 1: 
+        print("---------- OPÇÕES ----------\n" \
+              "1 - Criar conta\n" \
+              "2 - Adicionar movimentação\n" \
+              "3 - Verificar saldo\n" \
+              "4 - Sair")
+        
+        option = input("Escolha uma opção: ")
+        if option in ("1", "2", "3", "4"):
+            return int(option)
+        else:
+            print("Opção inválida.")
+    
+def send_msg(client, data):
+    json_str = json.dumps(data)
+    msg = json_str.encode("utf-8")
+    try:
+        client.sendall(msg)
+    except OSError as e:
+        print(f"Erro ao enviar dados. Erro: {e}")
+        exit(1)
 
 def run_client():
-
     # Verificação dos parâmetros
-    if len(sys.argv) != 4:
-        print("Uso correto: <nome-servidor> <porta> <dados>")
+    if len(sys.argv) != 3:
+        print("Uso correto: python client.py <nome-servidor> <porta>")
         exit(1)
 
     # Obtêm endereço IP do servidor
@@ -32,25 +59,71 @@ def run_client():
     except (socket.timeout, ConnectionRefusedError, OSError) as e:
         print(f"Falha ao conectar ao servidor. Erro: {e}")
         exit(1)
+        
+    while (1) :
+        option = get_valid_menu_option()
+        if (option == 1):
+            
+            try:
+                value = int(input("\nEntre com o valor inicial: "))
+            except ValueError:
+                print("Valor inválido.")
+                continue
 
-    # Codifica mensagem recebida como parâmetro
-    msg = sys.argv[3].encode("utf-8")
+            owner = input("Entre com o nome do dono da conta: ")
+            
+            data = {
+                "option": option,
+                "value": value,
+                "owner": owner 
+            }
 
-    # Envia mensagem
-    try:
-        client.sendall(msg)
-    except OSError as e:
-        print(f"Erro ao enviar dados. Erro: {e}")
-        exit(1)
+            send_msg(client, data)
+            print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de criação de conta com valor inicial {data["value"]} e dono {data["owner"]}\n")
+        
+        elif (option == 2):
+            type = input("\nEntre com o tipo de movimentação (s para saque ou d para depósito):")
+            if type.lower() not in ('s', 'd'):
+                print("Tipo inválido")
+                continue 
 
-    # Resposta do servidor
-    response = client.recv(8192).decode("utf-8")
-    print(f"Client received: {response}")
+            try:
+                value = int(input("Entre com o valor da movimentação: "))
+            except ValueError:
+                print("Valor inválido.")
+                continue
+            
+            data = {
+                "option": option,
+                "type": type.lower(),
+                "value": value 
+            }
+
+            send_msg(client, data)
+            print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de movimentação de conta com valor {data["value"]} e tipo {data["type"]}\n")
+
+        elif (option == 3):
+            data = {
+                "option": option
+            }
+            send_msg(client, data)
+
+            # Resposta do servidor
+            response = client.recv(8192).decode("utf-8")
+            response = json.loads(response)
+
+            print(f"\nO saldo da conta é {response["balance"]}")
+            print(f"[cliente - {datetime.datetime.now()}] Recebi um retorno do pedido de verificação de saldo\n")
+
+        elif option == 4:
+            data = {
+                "option": option
+            }
+            send_msg(client, data)
+            break
 
     # Fecha socket 
     client.close()
     exit(0)
-
-
 
 run_client()

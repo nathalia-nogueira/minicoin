@@ -7,10 +7,9 @@ class Block:
     self.operation = operation
     self.value = value 
     self.timestamp = datetime.datetime.now()
-    self.previousHash = previousHash
-    self.hash = self.calculateHash() 
+    self.hash = self.calculateHash(previousHash) 
     self.next = None 
 
-  def calculateHash(self):
-    data = f"{self.owner}{self.operation}{self.value}{self.timestamp}{self.previousHash}"
+  def calculateHash(self, previousHash):
+    data = f"{self.owner}{self.operation}{self.value}{self.timestamp}{previousHash}"
     return hashlib.sha256(data.encode()).hexdigest()

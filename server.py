@@ -25,7 +25,7 @@ def run_server():
 
     # Obtêm seu próprio endereço IP 
     try:
-        server_ip = socket.gethostname()
+        server_ip = "0.0.0.0" #socket.gethostname()
     except OSError as e:
         print("Falha ao obter o próprio endereço IP. Erro: {e}")
         exit(1)

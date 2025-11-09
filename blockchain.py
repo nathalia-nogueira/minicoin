@@ -1,9 +1,9 @@
 from block import Block
 
 class Blockchain:  
-    OP_OPEN_ACCOUNT = "open-acount"
-    OP_DEPOSIT = "deposito"
-    OP_WITHDRAWAL = "retirada"
+    OP_OPEN_ACCOUNT = "open-account"
+    OP_DEPOSIT = "deposit"
+    OP_WITHDRAWAL = "withdrawal"
   
     def __init__(self, owner, initialValue):
         firstBlock = Block(owner, self.OP_OPEN_ACCOUNT, initialValue)

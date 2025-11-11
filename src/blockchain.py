@@ -1,4 +1,4 @@
-from block import Block
+from src.block import Block
 
 class Blockchain:  
     OP_OPEN_ACCOUNT = "open-account"

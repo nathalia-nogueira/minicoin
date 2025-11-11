@@ -2,7 +2,7 @@ import socket
 import sys
 import json
 import datetime
-from blockchain import Blockchain
+from src.blockchain import Blockchain
 
 QUEUESIZE = 5
 
@@ -111,7 +111,7 @@ if len(sys.argv) != 2:
 
 # Obtêm seu próprio endereço IP 
 try:
-    server_ip = "0.0.0.0" # socket.gethostname()
+    server_ip = socket.gethostname()
 except OSError as e:
     print("Falha ao obter o próprio endereço IP. Erro: {e}")
     exit(1)

@@ -13,12 +13,13 @@ class Blockchain:
     def addBlock(self, operation, value):
         if operation == self.OP_WITHDRAWAL and value > self.calculateBalance():
             print("Erro: retirada inválida (saldo insuficiente)")
-            return
+            return -1
     
         newBlock = Block(self.tail.owner, operation, value, self.tail.hash)
         self.tail.next = newBlock
         self.tail = newBlock
-
+        return 1
+    
     def printBlockchain(self):
         currentBlock = self.head
         while currentBlock:

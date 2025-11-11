@@ -15,49 +15,93 @@ def send_msg(client_socket, data):
         print(f"Erro ao enviar dados. Erro: {e}")
         exit(1)
 
+def receive_msg(client_socket):
+    data = client_socket.recv(8192).decode("utf-8") 
+    data = json.loads(data)
+    
+    return data
+
 def handle_create_account(data):
     account = Blockchain(data["owner"], data["value"])
     return account
 
 def handle_transaction(account, data):
-    if data["type"] == "s":
-        account.addBlock(account.OP_WITHDRAWAL, data["value"])
-    elif data["type"] == "d":
-        account.addBlock(account.OP_DEPOSIT, data["value"])
+    if account is None:
+        res = -1
+    else:
+        if data["type"] == "s":
+            res = account.addBlock(account.OP_WITHDRAWAL, data["value"])
+        elif data["type"] == "d":
+            res = account.addBlock(account.OP_DEPOSIT, data["value"])
+
+    data = {
+        "option": 2,
+        "res": res
+    }
+    send_msg(client_socket, data)
+    
+    return res        
 
 def handle_balance_check(account):
-    balance = account.calculateBalance()
+    if account is None:
+        res = 0
+        balance = 0
+    else:
+        res = 1
+        balance = account.calculateBalance()
+  
     data = {
         "option": 3,
+        "res": res,
         "balance": balance
     }
-    send_msg(client_socket, data)  
-    return balance 
+    send_msg(client_socket, data)
+    
+    return res, balance 
 
-def handle_client():
+def handle_client(client_socket):
     account = None
 
     while(1):
-        # Recebe mensagem
-        request = client_socket.recv(8192).decode("utf-8") 
-        data = json.loads(request)
-            
-        option = data["option"]
+        request = receive_msg(client_socket)
+        option = request["option"]
+
         if option == 1:
-            account = handle_create_account(data)
-            print(f"\n[servidor - {datetime.datetime.now()}] Iniciei uma conta com dono {account.head.owner} e valor inicial {account.calculateBalance()}\n")
+            if account is not None:
+                res = 0
+                print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido de criação de conta. Não será realizado porque já existe conta\n")
+            else:
+                res = 1
+                account = handle_create_account(request)
+                print(f"\n[servidor - {datetime.datetime.now()}] Iniciei uma conta com dono {account.head.owner} e valor inicial {account.calculateBalance()}\n")
+
+            data = {
+                "option": 1,
+                "res": res 
+            }
+            send_msg(client_socket, data)
 
         elif option == 2:
-            handle_transaction(account, data)
-            print(f"\n[servidor - {datetime.datetime.now()}] Adicionei a movimentação {data["type"]} com valor {data["value"]}\n")
-
+            res = handle_transaction(account, request)
+            
+            if res == -1:
+                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request["type"]} com valor {request["value"]} não pôde ser adicionada porque não existe conta\n")
+            elif res == 0:
+                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request["type"]} com valor {request["value"]} não pôde ser adicionada porque é inválida\n")
+            elif res == 1:
+                print(f"\n[servidor - {datetime.datetime.now()}] Adicionei a movimentação {request["type"]} com valor {request["value"]}\n")
+        
         elif option == 3:
             print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido de verificação de saldo")
-            balance = handle_balance_check(account)
-            print(f"[servidor - {datetime.datetime.now()}] Enviei um retorno com saldo = {balance}\n")
+            res, balance = handle_balance_check(account)
+
+            if res == 0:
+                print(f"[servidor - {datetime.datetime.now()}] Não enviei retorno de saldo porque não existe conta\n")
+            elif res == 1:
+                print(f"[servidor - {datetime.datetime.now()}] Enviei um retorno com saldo = {balance}\n")
 
         elif option == 4:
-            print("Recebi um pedido pra fechar o server")
+            print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido para fechar comunicação.\n")
             break
 
 # Verificação dos parametros
@@ -67,7 +111,7 @@ if len(sys.argv) != 2:
 
 # Obtêm seu próprio endereço IP 
 try:
-    server_ip = ssocket.gethostname()
+    server_ip = "0.0.0.0" # socket.gethostname()
 except OSError as e:
     print("Falha ao obter o próprio endereço IP. Erro: {e}")
     exit(1)
@@ -102,7 +146,7 @@ while 1:
     except KeyboardInterrupt:
         exit(0)
     
-    handle_client()
+    handle_client(client_socket)
 
     # Fecha socket criado pra conexão com o cliente
     client_socket.close()

@@ -1,3 +1,11 @@
+'''
+Implementação do cliente
+Autoras:
+  NOME                    | LOGIN | GRR 
+- Bianca Mendes Francisco | bmf23 | 20234263
+- Nathália Nogueira Alves | nna23 | 20232349
+'''
+
 import socket
 import sys
 import os
@@ -129,7 +137,7 @@ def menu_loop(client):
 
 # Verificação dos parâmetros
 if len(sys.argv) != 3:
-    print("Uso correto: python client.py <nome-servidor> <porta>")
+    print("Uso correto: python3 client.py <nome-servidor> <porta>")
     exit(1)
 
 # Obtêm endereço IP do servidor
@@ -153,6 +161,7 @@ except OSError as e:
 # Estabelece conexão com o servidor 
 try:
     client.connect((server_ip, server_port))
+    print(f"[cliente - {datetime.datetime.now()}] Conectei ao servidor.\n")
 except (socket.timeout, ConnectionRefusedError, OSError) as e:
     print(f"Falha ao conectar ao servidor. Erro: {e}")
     exit(1)

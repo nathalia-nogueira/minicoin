@@ -1,3 +1,11 @@
+'''
+Implementação do servidor
+Autoras:
+  NOME                    | LOGIN | GRR 
+- Bianca Mendes Francisco | bmf23 | 20234263
+- Nathália Nogueira Alves | nna23 | 20232349
+'''
+
 import socket
 import sys
 import json
@@ -6,6 +14,7 @@ from blockchain import Blockchain
 
 QUEUESIZE = 5
 
+# Envia a mensagem data ao cliente client_socket
 def send_msg(client_socket, data):
     json_str = json.dumps(data)
     msg = json_str.encode("utf-8")
@@ -15,25 +24,31 @@ def send_msg(client_socket, data):
         print(f"Erro ao enviar dados. Erro: {e}")
         exit(1)
 
+# Recebe mensagem por client_socket e formata
 def receive_msg(client_socket):
     data = client_socket.recv(8192).decode("utf-8") 
     data = json.loads(data)
     
     return data
 
+# Lida com pedido de criação de conta
 def handle_create_account(data):
     account = Blockchain(data["owner"], data["value"])
     return account
 
+# Lida com pedido de transação
 def handle_transaction(account, data):
+    # Verifica se a conta existe
     if account is None:
         res = -1
-    else:
+    else: 
+        # Verifica o tipo da transação
         if data["type"] == "s":
             res = account.addBlock(account.OP_WITHDRAWAL, data["value"])
         elif data["type"] == "d":
             res = account.addBlock(account.OP_DEPOSIT, data["value"])
 
+    # Estrutura retorno e envia ao cliente
     data = {
         "option": 2,
         "res": res
@@ -42,7 +57,9 @@ def handle_transaction(account, data):
     
     return res        
 
+# Lida com o pedido de verificação de saldo
 def handle_balance_check(account):
+    # Verifica se a conta existe
     if account is None:
         res = 0
         balance = 0
@@ -50,6 +67,7 @@ def handle_balance_check(account):
         res = 1
         balance = account.calculateBalance()
   
+    # Estrutura retorno e envia ao cliente
     data = {
         "option": 3,
         "res": res,
@@ -59,6 +77,7 @@ def handle_balance_check(account):
     
     return res, balance 
 
+# Lida com requisições do cliente
 def handle_client(client_socket):
     account = None
 
@@ -66,6 +85,7 @@ def handle_client(client_socket):
         request = receive_msg(client_socket)
         option = request["option"]
 
+        # Opção 1: criação de conta
         if option == 1:
             if account is not None:
                 res = 0
@@ -81,6 +101,7 @@ def handle_client(client_socket):
             }
             send_msg(client_socket, data)
 
+        # Opção 2: adição de movimentação
         elif option == 2:
             res = handle_transaction(account, request)
             
@@ -91,6 +112,7 @@ def handle_client(client_socket):
             elif res == 1:
                 print(f"\n[servidor - {datetime.datetime.now()}] Adicionei a movimentação {request['type']} com valor {request['value']}\n")
         
+        # Opção 3: verificação de saldo
         elif option == 3:
             print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido de verificação de saldo")
             res, balance = handle_balance_check(account)
@@ -100,6 +122,7 @@ def handle_client(client_socket):
             elif res == 1:
                 print(f"[servidor - {datetime.datetime.now()}] Enviei um retorno com saldo = {balance}\n")
 
+        # Opção 4: encerrar
         elif option == 4:
             print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido para fechar comunicação.\n")
             break
@@ -141,12 +164,15 @@ while 1:
     # Espera tentativa de conexão
     try: 
         client_socket, client_address = server.accept()
+        print(f"[servidor - {datetime.datetime.now()}] Conectei ao cliente {client_address}\n")
+
     except OSError as e:
         print(f"Falha ao estabelecer a conexão. Erro: {e}")
     except KeyboardInterrupt:
         exit(0)
     
     handle_client(client_socket)
-
+    print(f"[servidor - {datetime.datetime.now()}] Encerrei conexão com o cliente {client_address}\n")
+    
     # Fecha socket criado pra conexão com o cliente
     client_socket.close()

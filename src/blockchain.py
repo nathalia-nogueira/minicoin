@@ -1,4 +1,4 @@
-from src.block import Block
+from block import Block
 
 class Blockchain:  
     OP_OPEN_ACCOUNT = "open-account"
@@ -13,7 +13,7 @@ class Blockchain:
     def addBlock(self, operation, value):
         if operation == self.OP_WITHDRAWAL and value > self.calculateBalance():
             print("Erro: retirada inválida (saldo insuficiente)")
-            return -1
+            return 0
     
         newBlock = Block(self.tail.owner, operation, value, self.tail.hash)
         self.tail.next = newBlock

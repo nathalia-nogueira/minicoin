@@ -98,11 +98,11 @@ def menu_loop(client):
             if response["res"] == 0:
                 print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de criação de conta, mas não pôde ser realizada porque já existe conta\n")
             elif response["res"] == 1:
-                print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de criação de conta com valor inicial {data["value"]} e dono {data["owner"]}\n")
+                print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de criação de conta com valor inicial {data['value']} e dono {data['owner']}\n")
 
         elif (option == 2):
             data = request_transaction(client)
-            print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de movimentação de conta com valor {data["value"]} e tipo {data["type"]}")
+            print(f"[cliente - {datetime.datetime.now()}] Enviei uma mensagem de movimentação de conta com valor {data['value']} e tipo {data['type']}")
             
             response = receive_msg(client)           
             if response["res"] == -1:
@@ -119,7 +119,7 @@ def menu_loop(client):
             if response["res"] == 0:
                 print(f"\nO saldo não pode ser verificado porque não existe conta.")
             elif response["res"] == 1:
-                print(f"\nO saldo da conta é {response["balance"]}")
+                print(f"\nO saldo da conta é {response['balance']}")
             
             print(f"[cliente - {datetime.datetime.now()}] Recebi um retorno do pedido de verificação de saldo\n")
 

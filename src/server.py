@@ -2,7 +2,7 @@ import socket
 import sys
 import json
 import datetime
-from src.blockchain import Blockchain
+from blockchain import Blockchain
 
 QUEUESIZE = 5
 
@@ -85,11 +85,11 @@ def handle_client(client_socket):
             res = handle_transaction(account, request)
             
             if res == -1:
-                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request["type"]} com valor {request["value"]} não pôde ser adicionada porque não existe conta\n")
+                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request['type']} com valor {request['value']} não pôde ser adicionada porque não existe conta\n")
             elif res == 0:
-                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request["type"]} com valor {request["value"]} não pôde ser adicionada porque é inválida\n")
+                print(f"\n[servidor - {datetime.datetime.now()}] A movimentação {request['type']} com valor {request['value']} não pôde ser adicionada porque é inválida\n")
             elif res == 1:
-                print(f"\n[servidor - {datetime.datetime.now()}] Adicionei a movimentação {request["type"]} com valor {request["value"]}\n")
+                print(f"\n[servidor - {datetime.datetime.now()}] Adicionei a movimentação {request['type']} com valor {request['value']}\n")
         
         elif option == 3:
             print(f"\n[servidor - {datetime.datetime.now()}] Recebi um pedido de verificação de saldo")

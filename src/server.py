@@ -158,7 +158,7 @@ except OSError as e:
 
 # Coloca servidor em modo escuta
 server.listen(QUEUESIZE)
-print(f"Listening on {server_ip}:{server_port}")
+print(f"\033[95mListening on {server_ip}:{server_port}\033[0m")
 
 while 1:
     # Espera tentativa de conexão
@@ -172,7 +172,7 @@ while 1:
         exit(0)
     
     handle_client(client_socket)
-    print(f"[servidor - {datetime.datetime.now()}] Encerrei conexão com o cliente {client_address}\n")
+    print(f"\033[92m[servidor - {datetime.datetime.now()}] Encerrei conexão com o cliente {client_address}\n\033[0m")
     
     # Fecha socket criado pra conexão com o cliente
     client_socket.close()

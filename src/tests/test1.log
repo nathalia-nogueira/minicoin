@@ -1,0 +1,136 @@
+[cliente - 2025-11-12 16:34:29.757477] Conectei ao servidor.
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 1
+
+Entre com o valor inicial: 397589347
+Entre com o nome do dono da conta: nathalia
+
+[cliente - 2025-11-12 16:34:44.676782] Enviei uma mensagem de criação de conta com valor inicial 397589347 e dono nathalia
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 500
+[cliente - 2025-11-12 16:34:55.916490] Enviei uma mensagem de movimentação de conta com valor 500 e tipo s
+[cliente - 2025-11-12 16:34:55.917108] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+
+O saldo da conta é 397588847
+[cliente - 2025-11-12 16:35:02.237201] Recebi um retorno do pedido de verificação de saldo
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 10000 
+
+[cliente - 2025-11-12 16:35:12.404109] Enviei uma mensagem de movimentação de conta com valor 10000 e tipo s
+[cliente - 2025-11-12 16:35:12.404791] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 100000 
+
+[cliente - 2025-11-12 16:35:30.532790] Enviei uma mensagem de movimentação de conta com valor 10000 e tipo s
+[cliente - 2025-11-12 16:35:30.533684] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+
+O saldo da conta é 397568847
+[cliente - 2025-11-12 16:35:37.357524] Recebi um retorno do pedido de verificação de saldo
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 396000000
+
+[cliente - 2025-11-12 16:36:04.044977] Enviei uma mensagem de movimentação de conta com valor 396000000 e tipo s
+[cliente - 2025-11-12 16:36:04.045936] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+
+O saldo da conta é 1568847
+[cliente - 2025-11-12 16:36:05.677750] Recebi um retorno do pedido de verificação de saldo
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 1500000
+[cliente - 2025-11-12 16:36:25.021223] Enviei uma mensagem de movimentação de conta com valor 1500000 e tipo s
+[cliente - 2025-11-12 16:36:25.022088] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+
+O saldo da conta é 68847
+[cliente - 2025-11-12 16:36:27.197829] Recebi um retorno do pedido de verificação de saldo
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito): s
+Entre com o valor da movimentação: 70000
+
+[cliente - 2025-11-12 16:36:37.333331] Enviei uma mensagem de movimentação de conta com valor 70000 e tipo s
+[cliente - 2025-11-12 16:36:37.333853] A movimentação era inválida, então não foi adicionada pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 4

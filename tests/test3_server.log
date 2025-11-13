@@ -1,0 +1,42 @@
+Listening on bianca:6000
+[servidor - 2025-11-13 14:08:01.243731] Conectei ao cliente ('127.0.0.1', 60256)
+
+
+[servidor - 2025-11-13 14:08:11.722193] Iniciei uma conta com dono bia e valor inicial 5000
+
+
+[servidor - 2025-11-13 14:08:18.672827] Iniciei uma conta com dono nath e valor inicial 8000
+
+
+[servidor - 2025-11-13 14:10:14.902191] Adicionei a movimentação d com valor 10000 à conta de bia
+
+
+[servidor - 2025-11-13 14:10:19.729329] Recebi um pedido de verificação de saldo para a conta de bia
+[servidor - 2025-11-13 14:10:19.729493] Enviei um retorno com saldo = 15000
+
+
+[servidor - 2025-11-13 14:10:52.380098] Adicionei a movimentação s com valor 1500 à conta de nath
+
+
+[servidor - 2025-11-13 14:10:56.531357] Recebi um pedido de verificação de saldo para a conta de nath
+[servidor - 2025-11-13 14:10:56.531490] Enviei um retorno com saldo = 6500
+
+
+[servidor - 2025-11-13 14:11:05.417223] Recebi um pedido para fechar comunicação.
+
+[servidor - 2025-11-13 14:11:05.417258] Encerrei conexão com o cliente ('127.0.0.1', 60256)
+
+[servidor - 2025-11-13 14:11:11.896525] Conectei ao cliente ('127.0.0.1', 60596)
+
+
+[servidor - 2025-11-13 14:11:16.695477] Recebi um pedido de verificação de saldo para a conta de bia
+[servidor - 2025-11-13 14:11:16.695637] Enviei um retorno com saldo = 15000
+
+
+[servidor - 2025-11-13 14:11:20.554737] Recebi um pedido de verificação de saldo para a conta de nath
+[servidor - 2025-11-13 14:11:20.554892] Enviei um retorno com saldo = 6500
+
+
+[servidor - 2025-11-13 14:11:22.158916] Recebi um pedido para fechar comunicação.
+
+[servidor - 2025-11-13 14:11:22.158974] Encerrei conexão com o cliente ('127.0.0.1', 60596)

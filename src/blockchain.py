@@ -24,7 +24,7 @@ class Blockchain:
     def addBlock(self, operation, value):
         # Se for saque, verifica se é possível
         if operation == self.OP_WITHDRAWAL and value > self.calculateBalance():
-            print("Erro: retirada inválida (saldo insuficiente)")
+            print("\033[31mErro: retirada inválida (saldo insuficiente)\033[0m")
             return 0
     
         # Cria e adiciona

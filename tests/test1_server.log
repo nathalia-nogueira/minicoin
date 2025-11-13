@@ -1,40 +1,27 @@
-Listening on j14:5000
-[servidor - 2025-11-12 16:34:29.762095] Conectei ao cliente ('10.254.225.17', 35460)
-
-[servidor - 2025-11-12 16:34:44.680805] Iniciei uma conta com dono nathalia e valor inicial 397589347
-
-[servidor - 2025-11-12 16:34:55.921133] Adicionei a movimentação s com valor 500
-
-[servidor - 2025-11-12 16:35:02.241106] Recebi um pedido de verificação de saldo
-[servidor - 2025-11-12 16:35:02.241206] Enviei um retorno com saldo = 397588847
-
-[servidor - 2025-11-12 16:35:12.408823] Adicionei a movimentação s com valor 10000
+Listening on bianca:6000
+[servidor - 2025-11-13 13:45:26.035256] Conectei ao cliente ('127.0.0.1', 48710)
 
 
-[servidor - 2025-11-12 16:35:30.537819] Adicionei a movimentação s com valor 10000
+[servidor - 2025-11-13 13:45:41.957261] Iniciei uma conta com dono nathalia e valor inicial 5000
 
 
-[servidor - 2025-11-12 16:35:37.361528] Recebi um pedido de verificação de saldo
-[servidor - 2025-11-12 16:35:37.361615] Enviei um retorno com saldo = 397568847
+[servidor - 2025-11-13 13:45:55.316153] Adicionei a movimentação s com valor 2000 à conta de nathalia
 
 
-[servidor - 2025-11-12 16:36:04.050071] Adicionei a movimentação s com valor 396000000
+[servidor - 2025-11-13 13:46:08.655186] Recebi um pedido de verificação de saldo para a conta de nathalia
+[servidor - 2025-11-13 13:46:08.655378] Enviei um retorno com saldo = 3000
 
 
-[servidor - 2025-11-12 16:36:05.681854] Recebi um pedido de verificação de saldo
-[servidor - 2025-11-12 16:36:05.681956] Enviei um retorno com saldo = 1568847
+[servidor - 2025-11-13 13:46:57.963320] Adicionei a movimentação d com valor 600 à conta de nathalia
 
 
-[servidor - 2025-11-12 16:36:25.026383] Adicionei a movimentação s com valor 1500000
-
-
-[servidor - 2025-11-12 16:36:27.202030] Recebi um pedido de verificação de saldo
-[servidor - 2025-11-12 16:36:27.202130] Enviei um retorno com saldo = 68847
+[servidor - 2025-11-13 13:47:11.946372] Recebi um pedido de verificação de saldo para a conta de nathalia
+[servidor - 2025-11-13 13:47:11.946496] Enviei um retorno com saldo = 3600
 
 Erro: retirada inválida (saldo insuficiente)
-[servidor - 2025-11-12 16:36:37.338206] A movimentação s com valor 70000 não pôde ser adicionada porque é inválida
+[servidor - 2025-11-13 13:47:23.966212] A movimentação s com valor 4000 não pôde ser adicionada porque é inválida
 
 
-[servidor - 2025-11-12 16:36:45.961656] Recebi um pedido para fechar comunicação.
+[servidor - 2025-11-13 13:47:30.375674] Recebi um pedido para fechar comunicação.
 
-[servidor - 2025-11-12 16:36:45.961767] Encerrei conexão com o cliente ('10.254.225.17', 35460)
+[servidor - 2025-11-13 13:47:30.375724] Encerrei conexão com o cliente ('127.0.0.1', 48710)

@@ -1,0 +1,23 @@
+Listening on bianca:6000
+[servidor - 2025-11-13 14:12:12.399435] Conectei ao cliente ('127.0.0.1', 39414)
+
+
+[servidor - 2025-11-13 14:12:28.493947] A movimentação s com valor 200 não pôde ser adicionada porque não existe conta com proprietário: nath
+
+
+[servidor - 2025-11-13 14:12:33.836849] Recebi um pedido de verificação de saldo para a conta de nath
+[servidor - 2025-11-13 14:12:33.836992] Não enviei retorno de saldo porque não existe conta com proprietário: nath
+
+
+[servidor - 2025-11-13 14:12:41.493286] Iniciei uma conta com dono nath e valor inicial 5000
+
+
+[servidor - 2025-11-13 14:12:54.888377] Recebi um pedido de criação de conta. Não será realizado porque já existe conta com proprietário: nath
+
+Erro: retirada inválida (saldo insuficiente)
+[servidor - 2025-11-13 14:13:09.549324] A movimentação s com valor 10000 não pôde ser adicionada porque é inválida
+
+
+[servidor - 2025-11-13 14:13:22.107734] Recebi um pedido para fechar comunicação.
+
+[servidor - 2025-11-13 14:13:22.107771] Encerrei conexão com o cliente ('127.0.0.1', 39414)

@@ -1,0 +1,113 @@
+[cliente - 2025-11-13 14:08:01.243663] Conectei ao servidor ('bianca', 6000)
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 1
+
+Entre com o valor inicial: 5000
+Entre com o nome do dono da conta: bia 
+[cliente - 2025-11-13 14:08:11.722663] Enviei uma mensagem de criação de conta com valor inicial 5000 e proprietário bia
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 1
+
+Entre com o valor inicial: 8000
+Entre com o nome do dono da conta: nath
+[cliente - 2025-11-13 14:08:18.672948] Enviei uma mensagem de criação de conta com valor inicial 8000 e proprietário nath
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito):d
+Entre com o valor da movimentação: 10000
+Entre com o nome do dono da conta: bia
+[cliente - 2025-11-13 14:10:14.901962] Enviei uma mensagem de movimentação para a conta de bia com valor 10000 e tipo d
+[cliente - 2025-11-13 14:10:14.902264] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+Entre com o nome do dono da conta: bia
+
+O saldo da conta é 15000
+[cliente - 2025-11-13 14:10:19.729555] Recebi um retorno do pedido de verificação de saldo para a conta de bia
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 2
+
+Entre com o tipo de movimentação (s para saque ou d para depósito):s
+Entre com o valor da movimentação: 1500
+Entre com o nome do dono da conta: nath
+[cliente - 2025-11-13 14:10:52.379828] Enviei uma mensagem de movimentação para a conta de nath com valor 1500 e tipo s
+[cliente - 2025-11-13 14:10:52.380158] Movimentação validada e adicionada na blockchain pelo servidor
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+Entre com o nome do dono da conta: nath
+
+O saldo da conta é 6500
+[cliente - 2025-11-13 14:10:56.531562] Recebi um retorno do pedido de verificação de saldo para a conta de nath
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 4
+
+[cliente - 2025-11-13 14:11:05.417175] Encerrando conexão com o servidor ('bianca', 6000)
+
+[cliente - 2025-11-13 14:11:11.896334] Conectei ao servidor ('bianca', 6000)
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+Entre com o nome do dono da conta: bia
+
+O saldo da conta é 15000
+[cliente - 2025-11-13 14:11:16.695727] Recebi um retorno do pedido de verificação de saldo para a conta de bia
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 3
+Entre com o nome do dono da conta: nath
+
+O saldo da conta é 6500
+[cliente - 2025-11-13 14:11:20.554992] Recebi um retorno do pedido de verificação de saldo para a conta de nath
+
+---------- OPÇÕES ----------
+1 - Criar conta
+2 - Adicionar movimentação
+3 - Verificar saldo
+4 - Sair
+Escolha uma opção: 4
+
+[cliente - 2025-11-13 14:11:22.158852] Encerrando conexão com o servidor ('bianca', 6000)

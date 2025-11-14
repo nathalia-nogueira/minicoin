@@ -45,11 +45,12 @@ def get_valid_menu_option():
 
 # Recebe dados para a criação da conta e envia ao servidor
 def request_account_creation(client):
-    try:
-        value = int(input("\nEntre com o valor inicial: "))
-    except ValueError:
-        print("\033[31mValor inválido.\033[0m")
-        exit(1)
+    while True:
+        try:
+            value = int(input("\nEntre com o valor inicial: "))
+            break
+        except ValueError:
+            print("\033[31mValor inválido.\033[0m")
 
     owner = input("Entre com o nome do dono da conta: ")
            
@@ -64,16 +65,19 @@ def request_account_creation(client):
 
 # Recebe dados da transação e envia ao servidor
 def request_transaction(client): 
-    type = input("\nEntre com o tipo de movimentação (s para saque ou d para depósito):")
-    if type.lower() not in ('s', 'd'):
-        print("\033[31mTipo inválido\033[0m")
-        exit(1) 
+    while True:
+        type = input("\nEntre com o tipo de movimentação (s para saque ou d para depósito):")
+        if type.lower() not in ('s', 'd'):
+            print("\033[31mTipo inválido\033[0m")
+        else:
+            break
 
-    try:
-        value = int(input("Entre com o valor da movimentação: "))
-    except ValueError:
-        print("\033[31mValor inválido.\033[0m")
-        exit(1)
+    while True:
+        try:
+            value = int(input("Entre com o valor da movimentação: "))
+            break
+        except ValueError:
+            print("\033[31mValor inválido.\033[0m")
 
     owner = input("Entre com o nome do dono da conta: ")
 
